@@ -54,6 +54,8 @@ return [
 
     'url' => env('APP_URL', 'http://localhost'),
 
+    'avatar' => env('APP_AVATAR', 'https://www.gravatar.com/avatar/'),
+
     'asset_url' => env('ASSET_URL', null),
 
     /*

@@ -91,6 +91,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Determine if the user is an administrator.
+     *
+     * @return bool
+     */
+    public function isAdmin(): bool
+    {
+        return in_array($this->email, explode(',', config('app.administrators')));
+    }
+
+    /**
      * A user has many category.
      *
      * @return HasMany

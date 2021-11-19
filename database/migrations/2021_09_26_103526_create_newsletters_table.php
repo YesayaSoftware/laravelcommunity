@@ -22,7 +22,7 @@ class CreateNewslettersTable extends Migration
             $table->string('thumbnail')->nullable();
 
             $table->foreignId('user_id')
-                ->constrained()
+                ->references('id')->on('users')
                 ->onDelete('cascade');
 
             $table->boolean('status')->default(false);

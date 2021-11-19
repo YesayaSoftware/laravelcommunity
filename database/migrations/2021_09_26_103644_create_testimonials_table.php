@@ -19,7 +19,7 @@ class CreateTestimonialsTable extends Migration
             $table->text("testimonial");
 
             $table->foreignId("user_id")
-                ->constrained()
+                ->references('id')->on('users')
                 ->onDelete("cascade");
 
             $table->timestamps();

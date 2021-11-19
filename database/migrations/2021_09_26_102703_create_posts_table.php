@@ -23,11 +23,11 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger("visits")->default(0);
 
             $table->foreignId("category_id")
-                ->constrained()
+                ->references('id')->on('categories')
                 ->onDelete("cascade");
 
             $table->foreignId("user_id")
-                ->constrained()
+                ->references('id')->on('users')
                 ->onDelete("cascade");
 
             $table->timestamps();

@@ -6,6 +6,8 @@
     "license": "MIT",
     "require": {
         "php": "^7.4|^8.0",
+        "aws/aws-sdk-php": "^3.204",
+        "aws/aws-sdk-php-laravel": "^3.6",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
         "inertiajs/inertia-laravel": "^0.4.3",

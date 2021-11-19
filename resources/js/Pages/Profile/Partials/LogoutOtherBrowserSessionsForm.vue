@@ -77,9 +77,9 @@
                         Cancel
                     </jet-secondary-button>
 
-                    <jet-button class="ml-2" @click="logoutOtherBrowserSessions" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    <lara-button class="ml-2" @click="logoutOtherBrowserSessions" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                         Log Out Other Browser Sessions
-                    </jet-button>
+                    </lara-button>
                 </template>
             </jet-dialog-modal>
         </template>
@@ -90,7 +90,7 @@
     import { defineComponent } from 'vue'
     import JetActionMessage from '@/Jetstream/ActionMessage.vue'
     import JetActionSection from '@/Jetstream/ActionSection.vue'
-    import JetButton from '@/Jetstream/Button.vue'
+    import LaraButton from '@/LaravelCommunity/Utils/Button'
     import JetDialogModal from '@/Jetstream/DialogModal.vue'
     import JetInput from '@/Jetstream/Input.vue'
     import JetInputError from '@/Jetstream/InputError.vue'
@@ -102,7 +102,7 @@
         components: {
             JetActionMessage,
             JetActionSection,
-            JetButton,
+            LaraButton,
             JetDialogModal,
             JetInput,
             JetInputError,

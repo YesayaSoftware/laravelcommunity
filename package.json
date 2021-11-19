@@ -25,5 +25,9 @@
         "tailwindcss": "^2.2.15",
         "vue": "^3.0.5",
         "vue-loader": "^16.1.2"
+    },
+    "dependencies": {
+        "@ckeditor/ckeditor5-build-balloon": "^31.0.0",
+        "@heroicons/vue": "^1.0.4"
     }
 }

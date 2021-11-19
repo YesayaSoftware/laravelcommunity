@@ -33,9 +33,9 @@
                 Saved.
             </jet-action-message>
 
-            <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <lara-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                 Save
-            </jet-button>
+            </lara-button>
         </template>
     </jet-form-section>
 </template>
@@ -43,7 +43,7 @@
 <script>
     import { defineComponent } from 'vue'
     import JetActionMessage from '@/Jetstream/ActionMessage.vue'
-    import JetButton from '@/Jetstream/Button.vue'
+    import LaraButton from '@/LaravelCommunity/Utils/Button'
     import JetFormSection from '@/Jetstream/FormSection.vue'
     import JetInput from '@/Jetstream/Input.vue'
     import JetInputError from '@/Jetstream/InputError.vue'
@@ -52,7 +52,7 @@
     export default defineComponent({
         components: {
             JetActionMessage,
-            JetButton,
+            LaraButton,
             JetFormSection,
             JetInput,
             JetInputError,

@@ -2,10 +2,12 @@
 
 namespace App\Models;
 
+use App\Notifications\Auth\QueuedResetPassword;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Notifications\Notifiable;
+use App\Notifications\Auth\VerifyEmailQueued;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -58,7 +60,7 @@ class User extends Authenticatable implements MustVerifyEmail
      * @var array
      */
     protected $appends = [
-        'profile_photo_url',
+        'profile_photo_url', 'is_admin'
     ];
 
     /**
@@ -101,6 +103,16 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Get the Admin user.
+     *
+     * @return string
+     */
+    public function getIsAdminAttribute()
+    {
+        return $this->isAdmin();
+    }
+
+    /**
      * A user has many category.
      *
      * @return HasMany
@@ -111,7 +123,7 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
-     * A user has many category.
+     * A user has many posts.
      *
      * @return HasMany
      */
@@ -128,5 +140,27 @@ class User extends Authenticatable implements MustVerifyEmail
     public function events(): HasMany
     {
         return $this->hasMany(Event::class);
+    }
+
+    /**
+     * Send verification email with Queue.
+     *
+     * @return Void
+     */
+    public function sendEmailVerificationNotification()
+    {
+        $this->notify(new VerifyEmailQueued);
+    }
+
+    /**
+     * Send password reset email with Queue.
+     *
+     * @param $token
+     *
+     * @return Void
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new QueuedResetPassword($token));
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Traits\RecordsActivity;
+use App\Models\Traits\Thumbnail;
 use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -11,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Category extends Model
 {
-    use HasFactory, RecordsActivity;
+    use HasFactory, RecordsActivity, Thumbnail;
 
     /**
      * The attributes that are mass assignable.
@@ -25,6 +26,20 @@ class Category extends Model
         'thumbnail',
         'user_id'
     ];
+
+    /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['user'];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = ['is_subscribed_to', 'subscription_count', 'thumbnail_url'];
 
     /**
      * A category belongs to a user.

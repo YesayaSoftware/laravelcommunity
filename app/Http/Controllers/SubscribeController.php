@@ -25,7 +25,7 @@ class SubscribeController extends Controller
             'email' => $request->email,
         ]);
 
-        return back()
+        return redirect()->back()
             ->with('success', 'Thanks, you will be updated.');
     }
 }

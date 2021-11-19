@@ -35,9 +35,9 @@
                     Forgot your password?
                 </Link>
 
-                <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <lara-button class="ml-4 bg-primary-800 hover:bg-primary-900 active:bg-primary-300 active:text-primary-800" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in
-                </jet-button>
+                </lara-button>
             </div>
         </form>
     </jet-authentication-card>
@@ -47,7 +47,7 @@
     import { defineComponent } from 'vue'
     import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
     import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
-    import JetButton from '@/Jetstream/Button.vue'
+    import LaraButton from '@/LaravelCommunity/Utils/Button'
     import JetInput from '@/Jetstream/Input.vue'
     import JetCheckbox from '@/Jetstream/Checkbox.vue'
     import JetLabel from '@/Jetstream/Label.vue'
@@ -59,7 +59,7 @@
             Head,
             JetAuthenticationCard,
             JetAuthenticationCardLogo,
-            JetButton,
+            LaraButton,
             JetInput,
             JetCheckbox,
             JetLabel,

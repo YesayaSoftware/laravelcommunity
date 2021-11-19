@@ -53,9 +53,9 @@
             <div class="mt-5">
                 <div v-if="! twoFactorEnabled">
                     <jet-confirms-password @confirmed="enableTwoFactorAuthentication">
-                        <jet-button type="button" :class="{ 'opacity-25': enabling }" :disabled="enabling">
+                        <lara-button type="button" :class="{ 'opacity-25': enabling }" :disabled="enabling">
                             Enable
-                        </jet-button>
+                        </lara-button>
                     </jet-confirms-password>
                 </div>
 
@@ -89,7 +89,7 @@
 <script>
     import { defineComponent } from 'vue'
     import JetActionSection from '@/Jetstream/ActionSection.vue'
-    import JetButton from '@/Jetstream/Button.vue'
+    import LaraButton from '@/LaravelCommunity/Utils/Button'
     import JetConfirmsPassword from '@/Jetstream/ConfirmsPassword.vue'
     import JetDangerButton from '@/Jetstream/DangerButton.vue'
     import JetSecondaryButton from '@/Jetstream/SecondaryButton.vue'
@@ -97,7 +97,7 @@
     export default defineComponent({
         components: {
             JetActionSection,
-            JetButton,
+            LaraButton,
             JetConfirmsPassword,
             JetDangerButton,
             JetSecondaryButton,

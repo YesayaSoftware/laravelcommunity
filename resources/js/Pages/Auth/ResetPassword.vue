@@ -25,9 +25,9 @@
             </div>
 
             <div class="flex items-center justify-end mt-4">
-                <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <lara-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Reset Password
-                </jet-button>
+                </lara-button>
             </div>
         </form>
     </jet-authentication-card>
@@ -38,7 +38,7 @@
     import { Head } from '@inertiajs/inertia-vue3';
     import JetAuthenticationCard from '@/Jetstream/AuthenticationCard.vue'
     import JetAuthenticationCardLogo from '@/Jetstream/AuthenticationCardLogo.vue'
-    import JetButton from '@/Jetstream/Button.vue'
+    import LaraButton from '@/LaravelCommunity/Utils/Button'
     import JetInput from '@/Jetstream/Input.vue'
     import JetLabel from '@/Jetstream/Label.vue'
     import JetValidationErrors from '@/Jetstream/ValidationErrors.vue'
@@ -48,7 +48,7 @@
             Head,
             JetAuthenticationCard,
             JetAuthenticationCardLogo,
-            JetButton,
+            LaraButton,
             JetInput,
             JetLabel,
             JetValidationErrors

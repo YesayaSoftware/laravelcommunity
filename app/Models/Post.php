@@ -31,6 +31,25 @@ class Post extends Model
     ];
 
     /**
+     * The relationships that should always be loaded.
+     *
+     * @var array
+     */
+    protected $with = ['category', 'user', 'comments'];
+
+    /**
+     * The accessors to append to the model's array form.
+     *
+     * @var array
+     */
+    protected $appends = [
+        'favorites_count',
+        'is_favorited',
+        'thumbnail_url',
+        'created_at_date'
+    ];
+
+    /**
      * A post belongs to a user.
      *
      * @return BelongsTo

@@ -12,15 +12,23 @@
                         <div class="flex">
                             <!-- Logo -->
                             <div class="flex-shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
+                                <Link :href="route('home')">
                                     <jet-application-mark class="block h-9 w-auto" />
                                 </Link>
                             </div>
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <jet-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
+                                <jet-nav-link :href="route('home')" :active="route().current('home')">
+                                    Home
+                                </jet-nav-link>
+
+                                <jet-nav-link :href="route('posts.index')" :active="route().current('posts.index')">
+                                    Posts
+                                </jet-nav-link>
+
+                                <jet-nav-link :href="route('categories.index')" :active="route().current('categories.index')">
+                                    Categories
                                 </jet-nav-link>
                             </div>
                         </div>
@@ -42,7 +50,7 @@
                                     </template>
 
                                     <template #content>
-                                        <div class="w-60">
+                                        <div class="w-60" v-if="$page.props.user">
                                             <!-- Team Management -->
                                             <template v-if="$page.props.jetstream.hasTeamFeatures">
                                                 <div class="block px-4 py-2 text-xs text-gray-400">
@@ -83,7 +91,7 @@
 
                             <!-- Settings Dropdown -->
                             <div class="ml-3 relative">
-                                <jet-dropdown align="right" width="48">
+                                <jet-dropdown v-if="$page.props.user" align="right" width="48">
                                     <template #trigger>
                                         <button v-if="$page.props.jetstream.managesProfilePhotos" class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
                                             <img class="h-8 w-8 rounded-full object-cover" :src="$page.props.user.profile_photo_url" :alt="$page.props.user.name" />
@@ -124,6 +132,10 @@
                                         </form>
                                     </template>
                                 </jet-dropdown>
+
+                                <laravel-community-primary-link v-if="!$page.props.user" :href="route('login')" :active="route().current('login')">
+                                    Login
+                                </laravel-community-primary-link>
                             </div>
                         </div>
 
@@ -142,13 +154,13 @@
                 <!-- Responsive Navigation Menu -->
                 <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
                     <div class="pt-2 pb-3 space-y-1">
-                        <jet-responsive-nav-link :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
+                        <jet-responsive-nav-link :href="route('posts.index')" :active="route().current('posts.index')">
+                            Posts
                         </jet-responsive-nav-link>
                     </div>
 
                     <!-- Responsive Settings Options -->
-                    <div class="pt-4 pb-1 border-t border-gray-200">
+                    <div v-if="$page.props.user" class="pt-4 pb-1 border-t border-gray-200">
                         <div class="flex items-center px-4">
                             <div v-if="$page.props.jetstream.managesProfilePhotos" class="flex-shrink-0 mr-3" >
                                 <img class="h-10 w-10 rounded-full object-cover" :src="$page.props.user.profile_photo_url" :alt="$page.props.user.name" />
@@ -240,6 +252,7 @@
     import JetNavLink from '@/Jetstream/NavLink.vue'
     import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue'
     import { Head, Link } from '@inertiajs/inertia-vue3';
+    import LaravelCommunityPrimaryLink from '@/LaravelCommunity/Form/PrimaryLink'
 
     export default defineComponent({
         props: {
@@ -255,6 +268,7 @@
             JetNavLink,
             JetResponsiveNavLink,
             Link,
+            LaravelCommunityPrimaryLink
         },
 
         data() {

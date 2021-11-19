@@ -26,7 +26,7 @@ trait Thumbnail
      */
     protected function defaultLocalUrl(): string
     {
-        return config('filesystems.disks.laravelcommunity.endpoint_url') . $this->thumbnail;
+        return config('filesystems.disks.public.url') . '/' . $this->thumbnail;
     }
 
     /**

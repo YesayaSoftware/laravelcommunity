@@ -17,8 +17,8 @@ class CreateActivitiesTable extends Migration
             $table->id();
 
             $table->foreignId('user_id')
-                ->constrained()
-                ->onDelete('cascade')->index();
+                ->references('id')->on('users')
+                ->onDelete('cascade');
 
             $table->unsignedbigInteger('subject_id')->index();
             $table->string('subject_type', 50);

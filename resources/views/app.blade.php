@@ -18,6 +18,7 @@
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
 
         <!-- Styles -->
+        <link rel="stylesheet" href="/css/editor.css">
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
         <!-- Scripts -->

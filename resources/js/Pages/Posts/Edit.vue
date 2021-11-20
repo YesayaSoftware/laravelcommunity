@@ -8,15 +8,15 @@
                     </h2>
 
                     <div class="mt-1 flex flex-col sm:mt-0 sm:flex-row sm:flex-wrap">
-                        <inertia-link
+                        <Link
                             :href="`/posts`"
-                            class="mt-2 flex items-center text-sm leading-5 text-blue-500 sm:mr-6">
+                            class="mt-2 flex items-center text-sm leading-5 text-primary-800 sm:mr-6">
                             <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M10 19L3 12M3 12L10 5M3 12L21 12" stroke="#4A5568" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
 
                             Go back
-                        </inertia-link>
+                        </Link>
 
                         <div class="mt-2 flex items-center text-sm leading-5 text-gray-500 sm:mr-6">
                             <svg class="flex-shrink-0 mr-1.5 h-5 w-5 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
@@ -30,9 +30,8 @@
 
                 <div class="mt-5 flex lg:mt-0 lg:ml-4">
                     <span class="sm:ml-3 shadow-sm rounded-md">
-                        <inertia-link
-                            :href="route('posts.index')"
-                            class="inline-flex items-center px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-blue-600 hover:bg-blue-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-700 active:bg-blue-700 transition duration-150 ease-in-out">
+                        <laravel-community-primary-link
+                            :href="route('posts.index')">
                             <svg class="-ml-1 mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M4 6C4 4.89543 4.89543 4 6 4H8C9.10457 4 10 4.89543 10 6V8C10 9.10457 9.10457 10 8 10H6C4.89543 10 4 9.10457 4 8V6Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path d="M14 6C14 4.89543 14.8954 4 16 4H18C19.1046 4 20 4.89543 20 6V8C20 9.10457 19.1046 10 18 10H16C14.8954 10 14 9.10457 14 8V6Z" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -41,7 +40,7 @@
                             </svg>
 
                             List
-                        </inertia-link>
+                        </laravel-community-primary-link>
                     </span>
                 </div>
             </div>
@@ -56,30 +55,27 @@
                                 <div>
                                     <div>
                                         <h3 class="text-lg leading-6 font-medium text-gray-900 dark:text-gray-100">
-                                            Malengo Yangu
+                                            Laravel Community Mission
                                         </h3>
 
                                         <p class="mt-1 text-sm text-gray-500">
-                                            Nimejifunza kuwa njia nzuri ya kuelewa zaidi ni kufundisha wengine
-                                            ulichojifunza. Napenda nachofanya na nataka kuelewa zaidi. Hapa chini, ni
-                                            maeneo muhimu ninayofanya nayo kazi na ninapenda kukushirikisha wewe.
+                                            The mission of Laravel Community Tanzania is to invite all the developers to work together and share experiences. Through writing articles and blog posts we believe you will inspire many who are struggling along the way while you have already experienced similar challenges in the past. As a community, we are proud of you for your readiness to help others.
                                         </p>
                                     </div>
 
                                     <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
                                         <div class="sm:col-span-4">
-                                            <label for="title" class="block text-sm font-medium dark:text-gray-300"
+                                            <laravel-community-label for="title"
                                                    :class="errors.title ? 'text-red-900' : 'text-gray-700'">
                                                 Title
-                                            </label>
+                                            </laravel-community-label>
 
                                             <div class="mt-1 flex rounded-md shadow-sm">
-                                                <input v-model="form.title"
+                                                <laravel-community-input v-model="form.title"
                                                        type="text"
                                                        name="title"
                                                        id="title"
                                                        autocomplete="title"
-                                                       class="flex-1 dark:bg-gray-800 dark:text-gray-100 focus:ring-blue-500 focus:border-blue-500 block w-full min-w-0 rounded-none rounded-r-md sm:text-sm border-gray-300"
                                                        :class="errors.title? 'border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500': ''"/>
                                             </div>
 
@@ -89,10 +85,10 @@
                                         </div>
 
                                         <div class="sm:col-span-4">
-                                            <label for="category_id" class="block text-sm font-medium dark:text-gray-300"
-                                                   :class="errors.category_id ? 'text-red-900' : 'text-gray-700'">
+                                            <laravel-community-label
+                                                :class="errors.category_id ? 'text-red-900' : 'text-gray-700'">
                                                 Category
-                                            </label>
+                                            </laravel-community-label>
 
                                             <div class="mt-1 flex rounded-md shadow-sm">
                                                 <select
@@ -115,17 +111,19 @@
                                         </div>
 
                                         <div class="sm:col-span-6">
-                                            <label for="body" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                            <laravel-community-label for="body">
                                                 Body
-                                            </label>
+                                            </laravel-community-label>
 
                                             <div class="mt-1">
-                                                <textarea v-model="form.body"
-                                                          id="body"
-                                                          name="body"
-                                                          rows="3"
-                                                          class="shadow-sm dark:bg-gray-800 dark:text-gray-100 focus:ring-blue-500 focus:border-blue-500 block w-full sm:text-sm border-gray-300 rounded-md"
-                                                          :class="errors.body? 'border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500': ''"/>
+                                                <QuillEditor
+                                                    v-model:content="form.body"
+                                                    contentType="html"
+                                                    placeholder="Here we go"
+                                                    theme="snow"
+                                                    toolbar="essential"
+                                                    class="border-gray-300 focus:border-primary-300 focus:ring focus:ring-primary-100 focus:ring-opacity-50 rounded-md shadow-sm block w-full sm:text-sm border-gray-300"
+                                                />
                                             </div>
 
                                             <p v-if="errors" class="mt-2 text-sm" id="description-error">
@@ -136,64 +134,62 @@
                                         </div>
 
                                         <div class="sm:col-span-6">
-                                        <!-- Post Thumbnail -->
-                                        <div class="col-span-6 sm:col-span-4">
-                                            <!-- Post Thumbnail File Input -->
-                                            <input type="file" class="hidden"
-                                                   ref="thumbnail"
-                                                   @change="updateThumbnailPreview">
+                                            <!-- Post Thumbnail -->
+                                            <div class="col-span-6 sm:col-span-4">
+                                                <!-- Post Thumbnail File Input -->
+                                                <input type="file" class="hidden"
+                                                       ref="thumbnail"
+                                                       @change="updateThumbnailPreview">
 
-                                            <label for="thumbnail" class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-300">
-                                                Thumbnail
-                                            </label>
+                                                <label for="thumbnail" class="block text-sm font-medium leading-5 text-gray-700 dark:text-gray-300">
+                                                    Thumbnail
+                                                </label>
 
-                                            <!-- Current Post Thumbnail -->
-                                            <div class="mt-2 mb-4" v-show="! thumbnailPreview">
-                                                <img id="thumbnail"
-                                                     :src="post.thumbnail_url" alt="Current Post Thumbnail" class="w-full object-cover">
+                                                <!-- Current Post Thumbnail -->
+                                                <div class="mt-2 mb-4" v-show="! thumbnailPreview">
+                                                    <img id="thumbnail"
+                                                         :src="post.thumbnail_url" alt="Current Post Thumbnail" class="w-full object-cover">
+                                                </div>
+
+                                                <!-- New Post Thumbnail Preview -->
+                                                <div class="mt-2 mb-4" v-show="thumbnailPreview">
+                                                <span class="block w-full h-72"
+                                                      :style="'background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(\'' + thumbnailPreview + '\');'">
+                                                </span>
+                                                </div>
+
+                                                <button type="button"
+                                                        @click.prevent="selectNewThumbnail"
+                                                        class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 dark:text-gray-300 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+                                                    Select A New Thumbnail
+                                                </button>
+
+                                                <button type="button"
+                                                        @click.prevent="deleteThumbnail"
+                                                        v-if="`/${form.thumbnail}`"
+                                                        class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 dark:text-gray-300 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
+                                                    Remove Thumbnail
+                                                </button>
+
+                                                <p class="mt-2 text-sm text-red-500">
+                                                    {{ errors.thumbnail }}
+                                                </p>
                                             </div>
-
-                                            <!-- New Post Thumbnail Preview -->
-                                            <div class="mt-2 mb-4" v-show="thumbnailPreview">
-                                            <span class="block w-full h-72"
-                                                  :style="'background-size: cover; background-repeat: no-repeat; background-position: center center; background-image: url(\'' + thumbnailPreview + '\');'">
-                                            </span>
-                                            </div>
-
-                                            <button type="button"
-                                                    @click.prevent="selectNewThumbnail"
-                                                    class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 dark:text-gray-300 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
-                                                Select A New Thumbnail
-                                            </button>
-
-                                            <button type="button"
-                                                    @click.prevent="deleteThumbnail"
-                                                    v-if="`/${form.thumbnail}`"
-                                                    class="py-2 px-4 border border-gray-300 rounded-md text-sm leading-5 font-medium text-gray-700 dark:text-gray-300 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition duration-150 ease-in-out">
-                                                Remove Thumbnail
-                                            </button>
-
-                                            <p class="mt-2 text-sm text-red-500">
-                                                {{ errors.thumbnail }}
-                                            </p>
                                         </div>
-                                    </div>
                                     </div>
                                 </div>
 
                                 <div class="pt-5">
                                     <div class="flex justify-end">
-                                        <inertia-link
-                                            :href="route('posts.index')"
-                                            class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                        <laravel-community-secondary-link
+                                            :href="route('posts.index')">
                                             Cancel
-                                        </inertia-link>
+                                        </laravel-community-secondary-link>
 
-                                        <button type="submit"
-                                                class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                                                :disabled="loading">
+                                        <laravel-community-button
+                                            class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                                             Save
-                                        </button>
+                                        </laravel-community-button>
                                     </div>
                                 </div>
                             </div>
@@ -206,13 +202,28 @@
 </template>
 
 <script>
-    import AppLayout from '@/Layouts/AppLayout'
+    import AppLayout from '@/Layouts/AppLayout';
+    import { Head, Link } from '@inertiajs/inertia-vue3';
+    import LaravelCommunityLabel from '@/LaravelCommunity/Form/Label';
+    import LaravelCommunityInput from '@/LaravelCommunity/Form/Input';
+    import LaravelCommunityTextarea from '@/LaravelCommunity/Form/Textarea';
+    import LaravelCommunityButton from '@/LaravelCommunity/Form/PrimaryButton';
+    import LaravelCommunityPrimaryLink from '@/LaravelCommunity/Form/PrimaryLink';
+    import LaravelCommunitySecondaryLink from '@/LaravelCommunity/Form/SecondaryLink';
 
     export default {
         props: ['category', 'categories', 'post', 'errors'],
 
         components: {
-            AppLayout
+            Head,
+            AppLayout,
+            LaravelCommunityLabel,
+            LaravelCommunityInput,
+            LaravelCommunityTextarea,
+            LaravelCommunityButton,
+            LaravelCommunityPrimaryLink,
+            LaravelCommunitySecondaryLink,
+            Link
         },
 
         data() {

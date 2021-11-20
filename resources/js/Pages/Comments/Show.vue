@@ -40,7 +40,7 @@
                         </button>
 
                         <button
-                            class="inline-flex items-center px-3 py-1 border-2 border-blue-500 text-sm leading-5 font-medium rounded-full text-blue-500 hover:bg-blue-500 hover:text-white focus:outline-none focus:shadow-outline-blue focus:border-blue-700 active:bg-blue-700 transition duration-150 ease-in-out"
+                            class="inline-flex items-center px-3 py-1 border-2 border-primary-800 text-sm leading-5 font-medium rounded-full text-primary-800 hover:bg-primary-800 hover:text-white focus:outline-none focus:shadow-outline-blue focus:border-primary-900 active:bg-primary-900 transition duration-150 ease-in-out"
                             @click="edit">
                             <svg class="w-4 h-4 mr-2"
                                  fill="none"

@@ -32,7 +32,7 @@
                                     </p>
 
                                     <p class="mt-3 text-base text-gray-500">
-                                        {{ post.body.substring(0, 180).concat('...') }}
+                                        <div v-html="post.body.substring(0, 180).concat('...')" />
                                     </p>
                                 </div>
 

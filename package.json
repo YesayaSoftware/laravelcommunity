@@ -27,7 +27,7 @@
         "vue-loader": "^16.1.2"
     },
     "dependencies": {
-        "@ckeditor/ckeditor5-build-balloon": "^31.0.0",
-        "@heroicons/vue": "^1.0.4"
+        "@heroicons/vue": "^1.0.4",
+        "@vueup/vue-quill": "^1.0.0-beta.7"
     }
 }

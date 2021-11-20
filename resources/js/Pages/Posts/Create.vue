@@ -63,7 +63,7 @@
                                         </h3>
 
                                         <p class="mt-1 text-sm text-gray-500">
-                                            The mission of Laravel Community Tanzania is to invite all the developers to work together and share experience. Through writing articles and blog posts we believe your will inspire many who are struggling along the way while you have already experience similar challenge in the past. As a community we are proud of you for your readiness to help others.
+                                            The mission of Laravel Community Tanzania is to invite all the developers to work together and share experiences. Through writing articles and blog posts we believe you will inspire many who are struggling along the way while you have already experienced similar challenges in the past. As a community, we are proud of you for your readiness to help others.
                                         </p>
                                     </div>
 
@@ -89,7 +89,7 @@
                                         </div>
 
                                         <div class="sm:col-span-4">
-                                            <laravel-community-label for="category_id" class="block text-sm font-medium dark:text-gray-300"
+                                            <laravel-community-label for="category_id"
                                                    :class="errors.category_id ? 'text-red-900' : 'text-gray-700'">
                                                 Category
                                             </laravel-community-label>
@@ -115,16 +115,19 @@
                                         </div>
 
                                         <div class="sm:col-span-6">
-                                            <laravel-community-label for="body" class="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                                            <laravel-community-label for="body">
                                                 Body
                                             </laravel-community-label>
 
                                             <div class="mt-1">
-                                                <laravel-community-textarea v-model="form.body"
-                                                          id="body"
-                                                          name="body"
-                                                          rows="3"
-                                                          :class="errors.body? 'border-red-300 text-red-900 placeholder-red-300 focus:outline-none focus:ring-red-500 focus:border-red-500': ''"/>
+                                                <QuillEditor
+                                                    v-model:content="form.body"
+                                                    contentType="html"
+                                                    placeholder="Here we go"
+                                                    theme="snow"
+                                                    toolbar="essential"
+                                                    class="border-gray-300 focus:border-primary-300 focus:ring focus:ring-primary-100 focus:ring-opacity-50 rounded-md shadow-sm block w-full sm:text-sm border-gray-300"
+                                                />
                                             </div>
 
                                             <p v-if="errors" class="mt-2 text-sm" id="description-error">
@@ -210,14 +213,14 @@
 </template>
 
 <script>
-import AppLayout from '@/Layouts/AppLayout'
+import AppLayout from '@/Layouts/AppLayout';
 import { Head, Link } from '@inertiajs/inertia-vue3';
-import LaravelCommunityLabel from '@/LaravelCommunity/Form/Label'
-import LaravelCommunityInput from '@/LaravelCommunity/Form/Input'
-import LaravelCommunityTextarea from '@/LaravelCommunity/Form/Textarea'
-import LaravelCommunityButton from '@/LaravelCommunity/Form/PrimaryButton'
-import LaravelCommunityPrimaryLink from '@/LaravelCommunity/Form/PrimaryLink'
-import LaravelCommunitySecondaryLink from '@/LaravelCommunity/Form/SecondaryLink'
+import LaravelCommunityLabel from '@/LaravelCommunity/Form/Label';
+import LaravelCommunityInput from '@/LaravelCommunity/Form/Input';
+import LaravelCommunityTextarea from '@/LaravelCommunity/Form/Textarea';
+import LaravelCommunityButton from '@/LaravelCommunity/Form/PrimaryButton';
+import LaravelCommunityPrimaryLink from '@/LaravelCommunity/Form/PrimaryLink';
+import LaravelCommunitySecondaryLink from '@/LaravelCommunity/Form/SecondaryLink';
 
 export default {
     props: ['categories', 'errors'],

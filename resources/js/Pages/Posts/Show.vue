@@ -60,7 +60,7 @@
 
                     <span v-if="$page.props.user" class="sm:ml-3 shadow-sm rounded-md">
                         <form @submit.prevent="favorite">
-                            <laravel-community-button type="submit" :class="classes">
+                            <laravel-community-button :class="classes">
                                 <svg v-if="post.is_favorited" class="-ml-1 mr-2 w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                                     <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"></path>
                                 </svg>
@@ -138,7 +138,8 @@
                     <div class="relative px-4 sm:px-6 lg:px-8">
                         <div class="text-lg text-gray-500 mx-auto mb-6">
                             <p class="text-base text-center leading-6 text-blue-600 font-semibold tracking-wide uppercase">
-                                <Link :href="route('categories.show', post.category.slug)">
+                                <Link :href="route('categories.show', post.category.slug)"
+                                    class="text-primary-800">
                                     {{ post.category.name }}
                                 </Link>
                             </p>
@@ -204,10 +205,7 @@
         computed: {
             classes() {
                 return [
-                    'inline-flex items-center px-4 py-2  text-sm leading-5 font-medium rounded-md transition duration-150 ease-in-out ',
-                        this.post.is_favorited ?
-                    'border border-gray-300 text-gray-700 bg-white hover:text-gray-500 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 active:text-gray-800 active:bg-gray-50' :
-                    ''
+                    this.post.is_favorited ? 'bg-gray-900 hover:bg-gray-800 dark:bg-gray-800 dark:hover:bg-gray-900' : ''
                 ];
             }
         },

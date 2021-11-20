@@ -36,16 +36,13 @@
 
                 <div class="mt-5 flex lg:mt-0 lg:ml-4">
                     <span v-if="$page.props.user && $page.props.user.is_admin" class="shadow-sm rounded-md mr-2">
-                        <form id="delete-form"
-                              method="POST"
-                              @submit.prevent="destroy">
-                            <button
-                                class="bg-red-700 hover:text-red-100 focus:outline-none focus:shadow-outline-red focus:border-red-300 active:text-gray-800">
+                        <form @submit.prevent="destroy">
+                            <button type="submit"
+                                    class="inline-flex items-center px-4 py-2 bg-red-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-700 active:bg-red-900 focus:outline-none focus:border-red-900 focus:ring focus:ring-red-300 disabled:opacity-25 transition"
+                                    :disabled="loading">
 
-                                <svg class="-ml-1 mr-2 h-5 w-5 text-red-100" fill="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                        d="M19 7L18.1327 19.1425C18.0579 20.1891 17.187 21 16.1378 21H7.86224C6.81296 21 5.94208 20.1891 5.86732 19.1425L5 7M10 11V17M14 11V17M15 7V4C15 3.44772 14.5523 3 14 3H10C9.44772 3 9 3.44772 9 4V7M4 7H20"
-                                        stroke="#fde8e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                <svg class="-ml-1 mr-2 h-5 w-5 text-red-500" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 7L18.1327 19.1425C18.0579 20.1891 17.187 21 16.1378 21H7.86224C6.81296 21 5.94208 20.1891 5.86732 19.1425L5 7M10 11V17M14 11V17M15 7V4C15 3.44772 14.5523 3 14 3H10C9.44772 3 9 3.44772 9 4V7M4 7H20" stroke="#fde8e8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
 
                                 Delete

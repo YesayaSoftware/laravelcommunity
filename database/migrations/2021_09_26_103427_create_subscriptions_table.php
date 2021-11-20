@@ -17,11 +17,11 @@ class CreateSubscriptionsTable extends Migration
             $table->id();
 
             $table->foreignId('category_id')
-                ->constrained()
+                ->references('id')->on('categories')
                 ->onDelete('cascade');
 
             $table->foreignId('user_id')
-                ->constrained()
+                ->references('id')->on('users')
                 ->onDelete('cascade');
 
             $table->unique(['user_id', 'category_id']);

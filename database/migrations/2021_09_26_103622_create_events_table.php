@@ -25,7 +25,7 @@ class CreateEventsTable extends Migration
             $table->timestamp("end_date");
 
             $table->foreignId("user_id")
-                ->constrained()
+                ->references('id')->on('users')
                 ->onDelete("cascade");
 
             $table->timestamps();

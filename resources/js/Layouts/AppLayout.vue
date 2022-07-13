@@ -252,7 +252,7 @@
     import JetNavLink from '@/Jetstream/NavLink.vue'
     import JetResponsiveNavLink from '@/Jetstream/ResponsiveNavLink.vue'
     import { Head, Link } from '@inertiajs/inertia-vue3';
-    import LaravelCommunityPrimaryLink from '@/LaravelCommunity/Form/PrimaryLink'
+    import LaravelCommunityPrimaryLink from './../LaravelCommunity/Form/PrimaryLink.vue'
 
     export default defineComponent({
         props: {
